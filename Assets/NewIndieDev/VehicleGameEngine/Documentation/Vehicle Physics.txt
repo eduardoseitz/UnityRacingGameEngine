@@ -1,0 +1,25 @@
+/*LONGITUTINAL FORCES*/
+
+// Straight line physics 
+
+aceleration
+inertia
+braking
+handbrake 
+rolling resistance (ground resistance)
+drag (air resistance)
+ 	
+	/* EngineForce */
+	Ftraction = u * Engineforce
+	// Where u is a unity vector in the direction the vehicle is heading
+	engineForce = tractionForce * u; 
+
+	/* Air resistance, a.k.a. aerodynamic drag */
+	Fdrag = - Cdrag * v * |v|
+	//where Cdrag is a constant and v is the velocity vector and the notation |v| refers to the magnitude of vector v (speed)
+	dragForce = -drag * vehicleVelocity * |speed|
+	
+/*LATERAL FORCES*/
+
+steering
+sideways friction
