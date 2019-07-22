@@ -1,0 +1,24 @@
+AMS%\Tilbehør\Media Center [Media Center.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Media Center</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør [Kalkulator.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon [Installasjonsveiviser for trådløst nettverk.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon [Nettverkstilkoblinger.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon [Tilkobling til eksternt skrivebord.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon [Veiviser for nettverksinstallasjon.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon [Veiviser for ny tilkobling.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon\Telefaks [Fakskonsoll.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon\Telefaks [Redigering av faksforside.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon\Telefaks [Send en telefaks....lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon\Telefaks [desktop.ini]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon\Telefaks</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon [desktop.ini]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Kommunikasjon</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Systemverktøy [Aktiver Windows.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Systemverktøy [Diskdefragmentering.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Systemverktøy [Diskopprydding.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Systemverktøy [Planlagte oppgaver.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Systemverktøy [Sikkerhetskopiering.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Systemverktøy [Sikkerhetssenter.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Systemverktøy [Systemgjenoppretting.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Systemverktøy [Systeminformasjon.lnk]</pattern>
+                        <pattern type="File">%CSIDL_COMMON_PROGRAMS%\Tilbehør\Sys

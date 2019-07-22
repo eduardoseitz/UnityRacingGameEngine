@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace NewIndieDev.VehicleGameEngine.InputSystem
 {
     public class InputManager : MonoBehaviour
     {
         #region Declarations
-        [Header("Vehicle Setup")]
+        // Static singleton property
+        public static InputManager instance { get; private set; } 
+
+        [Header("Vehicle Input Setup")]
         [Space(2f)]
 
         [Header("Steer Input")]
@@ -30,6 +31,22 @@ namespace NewIndieDev.VehicleGameEngine.InputSystem
         #endregion
 
         #region Main Methods
+        private void Awake()
+        {
+            // Check if there are any other instances conflicting
+            if (instance != null && instance != this)
+            {
+                // If that is the case, we destroy other instances
+                Destroy(gameObject);
+            }
+
+            // Save a reference to the component as our singleton instance
+            instance = this;
+
+            // Make sure that we don't destroy between scenes (this is optional)
+            DontDestroyOnLoad(gameObject);
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -66,7 +83,7 @@ namespace NewIndieDev.VehicleGameEngine.InputSystem
             return Mathf.Abs(_inputValue);
         }
 
-        //
+        /* TODO Pass this to the GetVehicleInput Method*/
         private void GetInput()
         {
             if (Input.GetAxisRaw("Horizontal") > 0.1f)
@@ -87,17 +104,6 @@ namespace NewIndieDev.VehicleGameEngine.InputSystem
                 steerLeft = 0;
             }
 
-            /*
-            if (Input.GetAxisRaw("Vertical") > 0.1f)
-            {
-                throttle = Input.GetAxisRaw("Vertical");
-            }
-            else
-            {
-                throttle = 0;
-            }
-            */
-
             if (Input.GetAxisRaw("Vertical") < -0.1f)
             {
                 brake = Input.GetAxisRaw("Vertical");
@@ -106,17 +112,6 @@ namespace NewIndieDev.VehicleGameEngine.InputSystem
             {
                 brake = 0;
             }
-
-            /*
-            if (Input.GetButton("Jump"))
-            {
-                handbrake = 1;
-            }
-            else
-            {
-                handbrake = 0;
-            }
-            */
         }
         #endregion
     }
