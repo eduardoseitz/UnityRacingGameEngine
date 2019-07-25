@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44659364, g: 0.49642962, b: 0.5748247, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4441,34 +4441,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steerLeft: 0
   steerLeftInput:
-    buttonName: 
-    axisName: Horizontal
-    axisDeadzone: 0.1
+    inputName: Horizontal
+    isAxis: 1
     isAxisInverted: 1
+    axisDeadzone: 0.1
   steerRight: 0
   steerRightInput:
-    buttonName: 
-    axisName: Horizontal
-    axisDeadzone: 0.1
+    inputName: Horizontal
+    isAxis: 1
     isAxisInverted: 0
+    axisDeadzone: 0.1
   throttle: 0
   throttleInput:
-    buttonName: 
-    axisName: Vertical
-    axisDeadzone: 0.1
+    inputName: Vertical
+    isAxis: 1
     isAxisInverted: 0
+    axisDeadzone: 0.1
   brake: 0
   brakeInput:
-    buttonName: Vertical
-    axisName: 
-    axisDeadzone: 0.1
+    inputName: Vertical
+    isAxis: 1
     isAxisInverted: 1
+    axisDeadzone: 0.1
   handbrake: 0
   handBrakeInput:
-    buttonName: Jump
-    axisName: 
-    axisDeadzone: 0.1
+    inputName: Jump
+    isAxis: 0
     isAxisInverted: 0
+    axisDeadzone: 0.1
 --- !u!1 &1508323728
 GameObject:
   m_ObjectHideFlags: 0

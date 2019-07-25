@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56934453e5040c4fb672e81fc0b217d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steerAngleStep: 5
+  steerAngleStep: 0.1
   maxSteerAngle: 45
   axleWheels:
   - {fileID: 6924118344619748253}
@@ -386,8 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e63ddf0425364c74b834caa6e724298c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brakeForce: 100
-  handrakeForce: 200
+  brakeForce: 50
+  handrakeForce: 100
   frontWheels:
   - {fileID: 6924118344619748253}
   - {fileID: 1824683469197280708}

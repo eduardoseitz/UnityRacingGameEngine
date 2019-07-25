@@ -9,8 +9,8 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
         [Space(2f)]
 
         [Header("Steering Setup")]
-        [SerializeField] float steerAngleStep = 5f;
-        [SerializeField] float maxSteerAngle = 45f;
+        [SerializeField] float steerAngleStep = 0.1f;
+        [SerializeField] float maxSteerAngle = 40f;
 
         [Header("Steering Wheels Setup")]
         [SerializeField] WheelCollider[] axleWheels;
@@ -37,6 +37,10 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
             if (steeringInput != 0)
             {
                 _currentSteerAngle += steerAngleStep * steeringInput;
+                if (_currentSteerAngle > maxSteerAngle)
+                    _currentSteerAngle = maxSteerAngle;
+                if (_currentSteerAngle < -maxSteerAngle)
+                    _currentSteerAngle = -maxSteerAngle;       
             }
             // When not steering at all
             else
@@ -45,49 +49,11 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
             }
 
             // Finnaly pass steer angle to the axle wheels
-            if (Mathf.Floor(Mathf.Abs(_currentSteerAngle)) > 0)
+            for (int axis = 0; axis < axleWheels.Length; axis++)
             {
-                for (int axis = 0; axis < axleWheels.Length; axis++)
-                {
-                    axleWheels[axis].steerAngle = _currentSteerAngle;
-                }
+                axleWheels[axis].steerAngle = _currentSteerAngle;
             }
         }
-
-        // Arcade Steering
-        /*private void UpdateSideSpeed(float speedIncrease)
-        {
-            // When steering then turn the vehicle
-            if (speedIncrease != 0)
-            {
-                currentSteerAngle += speedIncrease * Time.deltaTime;
-
-                if (currentSteerAngle > maxSteerAngle)
-                {
-                    currentSteerAngle = maxSteerAngle;
-                }
-                else if (currentSteerAngle < -maxSteerAngle)
-                {
-                    currentSteerAngle = -maxSteerAngle;
-                }
-            }
-            // When not steering return the vehicle to a straight position
-            else
-            {
-                if (currentSteerAngle < 0)
-                {
-                    currentSteerAngle += steerForce * Time.deltaTime;
-                    if (currentSteerAngle > 0)
-                        currentSteerAngle = 0;
-                }
-                else if (currentSteerAngle > 0)
-                {
-                    currentSteerAngle -= steerForce * Time.deltaTime;
-                    if (currentSteerAngle < 0)
-                        currentSteerAngle = 0;
-                }
-            }
-        }*/
         #endregion
     }
 }

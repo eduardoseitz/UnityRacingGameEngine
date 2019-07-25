@@ -43,7 +43,7 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
                 powerTrain.ApplyTorqueToWheels(InputManager.instance.throttle);
 
                 // When player steers
-                suspension.TurnAxleWheels(InputManager.instance.steerRight + InputManager.instance.steerLeft);
+                suspension.TurnAxleWheels(InputManager.instance.steerRight - InputManager.instance.steerLeft);
 
                 // Wheen player brakes
                 brake.BrakeVehicle(InputManager.instance.brake);

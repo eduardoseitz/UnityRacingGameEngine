@@ -13,21 +13,21 @@ namespace NewIndieDev.VehicleGameEngine.InputSystem
 
         [Header("Steer Input")]
         public float steerLeft;
-        [SerializeField] ControllerInput steerLeftInput;
+        [SerializeField] GameInput steerLeftInput;
         public float steerRight;
-        [SerializeField] ControllerInput steerRightInput;
+        [SerializeField] GameInput steerRightInput;
 
         [Header("Throttle Input")]
         public float throttle;
-        [SerializeField] ControllerInput throttleInput;
+        [SerializeField] GameInput throttleInput;
 
         [Header("Brake Input")]
         public float brake;
-        [SerializeField] ControllerInput brakeInput;
+        [SerializeField] GameInput brakeInput;
 
         [Header("Handbrake Input")]
         public float handbrake;
-        [SerializeField] ControllerInput handBrakeInput;
+        [SerializeField] GameInput handBrakeInput;
         #endregion
 
         #region Main Methods
@@ -50,67 +50,48 @@ namespace NewIndieDev.VehicleGameEngine.InputSystem
         // Update is called once per frame
         void Update()
         {
-            GetInput();
-
-            throttle = GetVehicleInput(throttleInput);
-            handbrake = GetVehicleInput(handBrakeInput);
+            // Get and store player input about vehicle controll
+            GetVehicleInput(steerLeftInput, ref steerLeft);
+            GetVehicleInput(steerRightInput, ref steerRight);
+            GetVehicleInput(throttleInput, ref throttle);
+            GetVehicleInput(brakeInput, ref brake);
+            GetVehicleInput(handBrakeInput, ref handbrake);
         }
-
         #endregion
 
         #region  Helper Methods
         // Get vehicle input from player
-        private float GetVehicleInput(ControllerInput gameInput)
+        private void GetVehicleInput(GameInput gameInput, ref float valueOutput)
         {
-            float _inputValue = 0;
-
-            if (!gameInput.buttonName.Equals(""))
+            // If game input is valid
+            if (!gameInput.inputName.Equals(""))
             {
-                if (Input.GetButton(gameInput.buttonName))
+                // If is not an axis type input
+                if (!gameInput.isAxis)
                 {
-                    _inputValue = 1;
+                    // If button is pressed
+                    if (Input.GetButton(gameInput.inputName))
+                    {
+                        valueOutput = 1;
+                    }
+                    else
+                    {
+                        valueOutput = 0;
+                    }
                 }
-            }
-
-            if (!gameInput.axisName.Equals(""))
-            {
-                if (Input.GetAxisRaw(gameInput.axisName) > gameInput.axisDeadzone)
+                // If is an axis type input
+                else
                 {
-                    _inputValue = Input.GetAxisRaw(gameInput.axisName);
+                    // If axis is moved more than its deadzone and is not inverted
+                    if ((Input.GetAxisRaw(gameInput.inputName) > gameInput.axisDeadzone && !gameInput.isAxisInverted) || (Input.GetAxisRaw(gameInput.inputName) < -gameInput.axisDeadzone && gameInput.isAxisInverted))
+                    {
+                        valueOutput = Mathf.Abs(Input.GetAxisRaw(gameInput.inputName));
+                    }
+                    else
+                    {
+                        valueOutput = 0;
+                    }
                 }
-            }
-
-            return Mathf.Abs(_inputValue);
-        }
-
-        /* TODO Pass this to the GetVehicleInput Method*/
-        private void GetInput()
-        {
-            if (Input.GetAxisRaw("Horizontal") > 0.1f)
-            {
-                steerRight = Input.GetAxisRaw("Horizontal");
-            }
-            else
-            {
-                steerRight = 0;
-            }
-
-            if (Input.GetAxisRaw("Horizontal") < -0.1f)
-            {
-                steerLeft = Mathf.Abs(Input.GetAxisRaw("Horizontal"));
-            }
-            else
-            {
-                steerLeft = 0;
-            }
-
-            if (Input.GetAxisRaw("Vertical") < -0.1f)
-            {
-                brake = Input.GetAxisRaw("Vertical");
-            }
-            else
-            {
-                brake = 0;
             }
         }
         #endregion
