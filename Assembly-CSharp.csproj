@@ -64,9 +64,10 @@
      <Compile Include="Assets\NewIndieDev\VehicleGameEngine\Scripts\VehicleSystem\BrakeBehaviour.cs" />
      <Compile Include="Assets\NewIndieDev\VehicleGameEngine\Scripts\VehicleSystem\Engine.cs" />
      <Compile Include="Assets\NewIndieDev\VehicleGameEngine\Scripts\VehicleSystem\PowertrainBehaviour.cs" />
+     <Compile Include="Assets\NewIndieDev\VehicleGameEngine\Scripts\VehicleSystem\Rim.cs" />
      <Compile Include="Assets\NewIndieDev\VehicleGameEngine\Scripts\VehicleSystem\SuspensionBehaviour.cs" />
+     <Compile Include="Assets\NewIndieDev\VehicleGameEngine\Scripts\VehicleSystem\TuningController.cs" />
      <Compile Include="Assets\NewIndieDev\VehicleGameEngine\Scripts\VehicleSystem\VehicleController.cs" />
-     <Compile Include="Assets\NewIndieDev\VehicleGameEngine\Scripts\VehicleSystem\Wheel.cs" />
      <None Include="Assets\NewIndieDev\VehicleGameEngine\Documentation\Vehicle Physics.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/media/personal/DATA/Unity/[Prototype] Street Zone Backfire/StreetZoneBackfire/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

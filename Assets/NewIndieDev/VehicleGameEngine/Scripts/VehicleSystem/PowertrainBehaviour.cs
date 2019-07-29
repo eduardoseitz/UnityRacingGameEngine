@@ -12,7 +12,6 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
         [SerializeField] Engine engine;
 
         [Header("Wheels Setup")]
-        [SerializeField] Wheel[] wheels;
         [SerializeField] WheelCollider[] poweredWheels;
         
         public float currentSpeed;
@@ -25,9 +24,9 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
         #region Main Methods
         private void Update()
         {
-            // Pass speed to the ui manager
-            if (UIManager.instance)
-                UIManager.instance.UpdateSpeedometer(currentSpeed);
+            // Pass speed to the ui manager /* NOT WORKING */
+            /*if (UIManager.instance)
+                UIManager.instance.UpdateSpeedometer(currentSpeed);*/
         }
         #endregion
 
@@ -45,8 +44,6 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
 
             // Stores current speed to be used by UI
             currentSpeed += _currentTorque / 0.5f /* Wheel diameter*/ * Time.deltaTime;
-
-            /* TODO Add realistic limit car speed by applying resistence in Aerodynamics class */
         }
         #endregion
     }

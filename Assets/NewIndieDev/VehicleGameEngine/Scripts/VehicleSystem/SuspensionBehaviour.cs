@@ -15,18 +15,8 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
         [Header("Steering Wheels Setup")]
         [SerializeField] WheelCollider[] axleWheels;
 
-        // Script references
-        PowertrainBehaviour powertrain;
-
         // Local variables
         float _currentSteerAngle;
-        #endregion
-
-        #region Main Methods
-        private void Awake()
-        {
-            powertrain = GetComponent<PowertrainBehaviour>();
-        }
         #endregion
 
         #region Helper Methods

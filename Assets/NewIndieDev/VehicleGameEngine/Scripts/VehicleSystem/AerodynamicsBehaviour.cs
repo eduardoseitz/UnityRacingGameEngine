@@ -26,6 +26,9 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
         #endregion
 
         #region Helper Methods
+
+        /* TODO Add realistic limit car speed by applying resistence */
+
         // Apply foward resistence force when its moving
         /*private void ApplyStraightResistanceForce()
         {

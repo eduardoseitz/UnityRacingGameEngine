@@ -6,13 +6,14 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
     /* Controlls how controllable vehicles should behaviour */
     // Should be attached to a vehicle controlled by the player 
     [RequireComponent(typeof(PowertrainBehaviour))]
+    [RequireComponent(typeof(AerodynamicsBehaviour))]
     [RequireComponent(typeof(SuspensionBehaviour))]
     [RequireComponent(typeof(BrakeBehaviour))]
     public class VehicleController : MonoBehaviour
     {
         #region Declarations
         // Script references
-        PowertrainBehaviour powerTrain;
+        PowertrainBehaviour powertrain;
         SuspensionBehaviour suspension;
         BrakeBehaviour brake;
         #endregion
@@ -22,7 +23,7 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
         private void Awake()
         {
             // Get powertrain behaviour script reference
-            powerTrain = GetComponent<PowertrainBehaviour>();
+            powertrain = GetComponent<PowertrainBehaviour>();
 
             // Get suspension behaviour script reference
             suspension = GetComponent<SuspensionBehaviour>();
@@ -40,13 +41,20 @@ namespace NewIndieDev.VehicleGameEngine.VehicleSystem
             if (InputManager.instance)
             {
                 // Wheen player uses the throttle
-                powerTrain.ApplyTorqueToWheels(InputManager.instance.throttle);
+                powertrain.ApplyTorqueToWheels(InputManager.instance.throttle);
 
                 // When player steers
                 suspension.TurnAxleWheels(InputManager.instance.steerRight - InputManager.instance.steerLeft);
 
-                // Wheen player brakes
-                brake.BrakeVehicle(InputManager.instance.brake);
+                if (Mathf.Floor(powertrain.currentSpeed) > 0)
+                {
+                    // Wheen player brakes and the vehicle is going straight than brake
+                    brake.BrakeVehicle(InputManager.instance.brake);
+                }else
+                {
+                    // Wheen player presses brakes and the behicle speed is less than zero or is stopped than back up 
+                    powertrain.ApplyTorqueToWheels(-InputManager.instance.brake);
+                }
 
                 // When player uses handbrake
                 brake.handbrakeVehicle(InputManager.instance.handbrake);
